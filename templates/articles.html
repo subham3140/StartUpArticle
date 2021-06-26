@@ -1,0 +1,38 @@
+{% extends 'base.html' %} {% block body %}
+<div class="container">
+    <div class="articles">
+        <div class="toparticle">
+            <img src="{{ toparticle.profile.url }}" alt="">
+            <h2> <a href="">{{ toparticle.title }} </a> </h2>
+        </div>
+        <div class="recentarticles">
+            <div class="recentheading">
+                <h4>OUR RECENT ARTICLES</h4>
+            </div>
+            <div class="recentcontent">
+                {% for article in allarticles %} {% if forloop.counter != 1 %}
+                <div class="eachrecentart">
+                    <div class="eachartinfo">
+                        <div class="im">
+                            <img src="{{ article.profile.url }}" alt="">
+                        </div>
+                        <div class="ia">
+                            <div class="profile">
+                                <a href=""><button class="articlesocial"> <span>PROFILE</span> </button> </a>
+                            </div>
+                            <div class="preinfo">
+                                <a class="nav-item nav-link" href="#"><i class="fab fa-facebook-square"></i></a>
+                                <a class="nav-item nav-link" href="#"> <i class="fab fa-instagram"></i> </a>
+                                <a class="nav-item nav-link" href="#"> <i class="fab fa-twitter-square"></i></a>
+                                <a class="nav-item nav-link" href="#"> <i class="fab fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <h2> <a href="">{{ article.title }}</a> </h2>
+                </div>
+                <hr> {% endif %} {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
