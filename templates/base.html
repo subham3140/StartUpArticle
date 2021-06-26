@@ -16,7 +16,13 @@
 <link href="/static/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
 <link href="/static/js/navbr.js" id="bootstrap-style" rel="stylesheet" type="text/css" />
 <link href="/static/css/navbr.css" id="bootstrap-style" rel="stylesheet" type="text/css" /> {% block extralinks %} {% endblock %}
+<link href="/static/css/content.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+<link href="/static/css/footer.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 
 <body>
     {% include 'header.html' %}
@@ -24,6 +30,9 @@
         <div class="page-content">
             {% block body %} {% endblock %}
         </div>
+    </div>
+    <div class="content-saperator"></div>
+    <div class="footer">
         {% include 'footer.html' %}
     </div>
     <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
@@ -42,18 +51,18 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myLinks");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+        }
+    </script>
+    {% block scripts %} {% endblock %}
 
 </body>
-<script>
-    function myFunction() {
-        var x = document.getElementById("myLinks");
-        if (x.style.display === "block") {
-            x.style.display = "none";
-        } else {
-            x.style.display = "block";
-        }
-    }
-</script>
-{% block scripts %} {% endblock %}
 
 </html>

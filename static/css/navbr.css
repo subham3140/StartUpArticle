@@ -13,7 +13,7 @@
         width: 10%;
         position: relative;
     }
-    .navbar {
+    .nav2 {
         display: flex;
         justify-content: end;
         width: 90%;
@@ -23,7 +23,7 @@
         width: 100%;
         font-size: 30px;
     }
-    .tabs {
+    .nav2 .tabs {
         margin-top: 0px;
         font-size: 15px;
         padding: 0px;
@@ -37,6 +37,9 @@
         justify-content: space-evenly;
         overflow-x: hidden;
     }
+    .nav2 .search_bar {
+        width: 82%;
+    }
     .search,
     .navburger {
         width: 9%;
@@ -45,7 +48,7 @@
         font-weight: 500;
         color: #05abe0;
     }
-    .tabs a {
+    .nav2 .tabs a {
         text-decoration: none;
         color: black;
         text-transform: uppercase;
@@ -56,13 +59,13 @@
         transition-duration: 0.6s;
         font-weight: 500;
     }
-    .tabs a.active {
+    .nav2 .tabs a.active {
         color: #fff;
     }
-    .tabs a i {
+    .nav2 .tabs a i {
         margin-right: 1px;
     }
-    .tabs .selector {
+    .nav2 .tabs .selector {
         height: 100%;
         display: flex;
         position: absolute;
@@ -75,10 +78,27 @@
         transition-duration: 0.6s;
         transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
         background: #05abe0;
-        background: -moz-linear-gradient(45deg, #05abe0 0%, #8200f4 100%);
-        background: -webkit-linear-gradient(45deg, #05abe0 0%, #8200f4 100%);
-        background: linear-gradient(45deg, #05abe0 0%, #8200f4 100%);
+        background: -moz-linear-gradient(45deg, #05abe0 10%, #015773 100%);
+        background: -webkit-linear-gradient(45deg, #05abe0 10%, #015773 100%);
+        background: linear-gradient(45deg, #05abe0 10%, #015773 100%);
         filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#05abe0', endColorstr='#8200f4', GradientType=1);
+    }
+    .nav2 .search_bar input {
+        border-top-style: hidden;
+        border-right-style: hidden;
+        border-left-style: hidden;
+        margin-top: 0px;
+        font-size: 15px;
+        padding: 0px;
+        background-color: transparent;
+        position: relative;
+        width: 82%;
+        overflow-x: hidden;
+        width: 100%;
+        border-bottom: 1px solid black;
+    }
+    .nav2 .search_bar input:focus {
+        outline: none;
     }
 }
 
@@ -102,23 +122,44 @@
         padding-left: 20px;
         color: #05abe0;
     }
-    .navbar {
+    .nav2 {
         width: 90%;
         position: relative;
         display: flex;
         justify-content: flex-end;
     }
-    .navbar .tabs {
+    .nav2 .tabs {
         display: none;
         width: 0%;
     }
+    .nav2 .search_bar {
+        position: relative;
+        width: 60%;
+    }
+    .nav2 .search_bar input {
+        position: relative;
+        border-top-style: hidden;
+        border-right-style: hidden;
+        border-left-style: hidden;
+        margin-top: 0px;
+        font-size: 15px;
+        padding: 0px;
+        background-color: transparent;
+        position: relative;
+        overflow-x: hidden;
+        width: 100%;
+        border-bottom: 1px solid black;
+    }
+    .nav2 .search_bar input:focus {
+        outline: none;
+    }
     .search,
     .navburger {
-        width: 9%;
+        width: 20%;
         position: relative;
         font-size: 15px;
         font-weight: 500;
-        padding-right: 20px;
+        /* padding-right: 20px; */
         color: #05abe0;
     }
 }
@@ -178,49 +219,7 @@
     top: 0;
 }
 
-
-/* .search_bt {
-    display: flex;
-    text-decoration: none;
-    align-items: center;
-    border-radius: 50px;
-    border: 1px solid #05abe0;
-    color: #05abe0;
+#navbarNavAltMarkup .fab {
     font-size: 20px;
-    font-family: arial;
-    position: relative;
-    overflow: hidden;
-    background: transparent;
-    text-transform: uppercase;
-    transition: all .35s;
+    color: white;
 }
-
-.search_bt:before,
-.search_bt:after {
-    position: absolute;
-    content: "";
-    width: 100%;
-    height: 100%;
-    top: -100%;
-    left: 0;
-    background: #05abe0;
-    z-index: -1;
-    transition: all .35s;
-}
-
-.search_bt:before {
-    opacity: .5;
-}
-
-.search_bt:after {
-    transition-delay: .2s;
-}
-
-.search_bt:hover {
-    color: #fff;
-}
-
-.search_bt:hover::before,
-.search_bt:hover::after {
-    top: 0;
-} */
