@@ -1,0 +1,30 @@
+{% include 'base.html' %} {% block interview %}
+
+<div class="heading">
+    <div class="image">
+        <img src="{{ article.profile.url }}" alt="">
+    </div>
+    <div class="title">
+        <div class="morebtn">
+            <button class="articlesocial"> <span>INTERVIEWS</span> </button>
+            <button class="articlesocial"> <span>IDEAS</span> </button>
+            <button class="articlesocial"> <span>STORIES</span> </button>
+            <button class="articlesocial"> <span>INSPIRATIONS</span> </button>
+        </div>
+        <div>
+            <h2> {{ interview.heading }}</h2>
+        </div>
+    </div>
+</div>
+<div class="about">
+    {% for item in about %} {{ item|linebreaks }} {% endfor %}
+</div>
+<div class="question">
+    {% for key,value in questions.items %}
+    <h2 style="font-weight: 600;">{{ key|linebreaks }}</h2>
+    <h3>{{ value|linebreaks }}</h3> <br> {% endfor %}
+</div>
+
+
+{% endblock %}
+<script src="/static/js/interview.js"></script>
