@@ -234,6 +234,10 @@
     color: #fff;
 }
 
+.morebtn .articlesocial:hover {
+    color: black;
+}
+
 .articlesocial:hover::before,
 .articlesocial:hover::after {
     top: 0;

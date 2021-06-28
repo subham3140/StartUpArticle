@@ -41,9 +41,21 @@ def allArticles(request):
 def article(request, pk):
     article = Article.objects.get(id=pk) 
     interview = Interview.objects.get(author=article.author)
+    about = [item for item in interview.about.split("@changepg")]
+    for i in interview.contents.all():
+      if i.content_type == "question":
+        questions = i.content.split("@qend")
+      else:
+        answers = i.content.split("@ansend")
+    result = {}   
+    for i in range(0, len(questions)):
+          result[questions[i]] = answers[i] 
     context = {
       "pk": pk,
       "interview": interview,
-      "article": article
+      "article": article,  
+      "about": about,
+      "questions": result
     }
+
     return render(request, "interview.html", context) 

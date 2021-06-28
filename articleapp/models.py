@@ -5,6 +5,7 @@ from django.utils import tree
 
 CONTENT_TYPE = (
     ("question", "Question"),
+    ("answers", "Answers"),
     ("inspiration", "Inspiration"),
     ("success_key", "Success Key"),
     ("story", "story"),
@@ -13,11 +14,6 @@ CONTENT_TYPE = (
     ("influencer", "Influencer"),
     ("contact", "Contact"),
     ("goal", "Goal"),
-)
-
-CONTENT_FORMAT = (
-    ("plain text", "Plain Text"),
-    ("list text", "List Text"),
 )
 
 GENDER = (
@@ -31,26 +27,17 @@ class MediaArticle(models.Model):
     author =  models.CharField(max_length=500, null=True, blank=True)
 
     def __str__(self):
-        return "media field of {}".format(self.author)
-
-class Content(models.Model):
-    author =  models.CharField(max_length=500, null=True, blank=True)
-    content = models.TextField(default="")
-    content_format = models.CharField(max_length=500, choices=CONTENT_FORMAT, default="plain text")
-
-    def __str__(self):
-        return f"content format for {self.author}"
-        
+        return "media field of {}".format(self.author)   
         
 class InterViewContent(models.Model):
     author =  models.CharField(max_length=500, null=True, blank=True)
-    content = models.ManyToManyField(to=Content)
+    content = models.TextField(null=True)
     content_type = models.CharField(choices=CONTENT_TYPE, max_length=200, default= "question")
     media = models.ManyToManyField(to=MediaArticle)
     gender = models.CharField(choices=GENDER, max_length=400, default="male")
 
     def __str__(self):
-        return "interview contents of {}".format(self.author)
+        return "{} for {}".format(self.content_type,self.author)
 
 class Interview(models.Model):
     heading = models.TextField(null=False)
@@ -71,3 +58,9 @@ class Article(models.Model):
     def __str__(self):
         return f'article of {self.author}'
 
+
+
+# for each paragraph - @changepg
+# for each ending question - @qend
+# for each ending answer - @ansend
+# for list items - @changel

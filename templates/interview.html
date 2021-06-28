@@ -1,47 +1,30 @@
 {% include 'base.html' %} {% block interview %}
 
 <div class="heading">
-    <div class="title">
-        {{ interview.title }}
-    </div>
     <div class="image">
         <img src="{{ article.profile.url }}" alt="">
     </div>
+    <div class="title">
+        <div class="morebtn">
+            <button class="articlesocial"> <span>INTERVIEWS</span> </button>
+            <button class="articlesocial"> <span>IDEAS</span> </button>
+            <button class="articlesocial"> <span>STORIES</span> </button>
+            <button class="articlesocial"> <span>INSPIRATIONS</span> </button>
+        </div>
+        <div>
+            <h2> {{ interview.heading }}</h2>
+        </div>
+    </div>
+</div>
+<div class="about">
+    {% for item in about %} {{ item|linebreaks }} {% endfor %}
+</div>
+<div class="question">
+    {% for key,value in questions.items %}
+    <h2 style="font-weight: 600;">{{ key|linebreaks }}</h2>
+    <h3>{{ value|linebreaks }}</h3> <br> {% endfor %}
 </div>
 
 
 {% endblock %}
-<script>
-    $('.tabs-interview').find("a[name=article]").removeClass("default_pos")
-    $('.tabs-interview').find("a[name=interview]").addClass("default_pos")
-    $('.main-page-header')[0].style.display = "none";
-    $('.interview-page-header')[0].style.display = "";
-    var tabs = $('.tabs-interview');
-    var selector = $('.tabs-interview').find('a').length;
-    var activeItem = tabs.find('.active');
-    var activeWidth = activeItem.innerWidth();
-    var default_pos = tabs.find('.default_pos')
-
-    function adjustNav() {
-        $(".selector").css({
-            "left": $(default_pos).position().left - 1 + "px",
-            "width": default_pos.innerWidth() + "px"
-        });
-    }
-    $(".tabs-interview").on("click", "a", function(e) {
-        e.preventDefault();
-        $('.tabs-interview a').removeClass("active");
-        $(this).addClass('active');
-        var activeWidth = $(this).innerWidth();
-        var itemPos = $(this).position();
-        $(".selector").css({
-            "left": itemPos.left + "px",
-            "width": activeWidth + "px"
-        });
-    });
-
-    $(window).resize(function() {
-        adjustNav()
-    })
-    adjustNav()
-</script>
+<script src="/static/js/interview.js"></script>

@@ -17,13 +17,16 @@
 <link href="/static/css/navbr.css" id="bootstrap-style" rel="stylesheet" type="text/css" /> {% block extralinks %} {% endblock %}
 <link href="/static/css/content.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
 <link href="/static/css/footer.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+<link href="/static/css/interview.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Padauk&display=swap" rel="stylesheet">
 
 <body>
+    {% block interview %}{% endblock %}
     <div class="main-page-header">
         {% include 'header.html' %}
     </div>
@@ -31,7 +34,6 @@
         <!-- // this header is only for the single interview page, so bydefault it displayed none -->
         {% include 'interviewheader.html' %}
     </div>
-    {% block interview %}{% endblock %}
     <div class="main-content">
         <div class="page-content">
             {% block body %} {% endblock %}

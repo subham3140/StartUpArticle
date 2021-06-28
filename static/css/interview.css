@@ -1,0 +1,64 @@
+@media only screen and (min-width: 600px) {
+    .heading {
+        top: 0;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        height: 300px;
+        width: 80%;
+        margin-right: 5%;
+        margin-left: 5%;
+        position: relative;
+        background-color: #e4e9eb;
+        border-radius: 15px;
+    }
+    .heading .image {
+        width: 40%;
+        display: flex;
+        justify-content: center;
+    }
+    .heading .image img {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        border: 1px solid black;
+        object-fit: cover;
+    }
+    .heading .title {
+        position: relative;
+        padding: 0px 20px 0px 10px;
+        width: 60%;
+        height: 100%;
+        font-family: 'Pacifico', cursive;
+        letter-spacing: 3px;
+        font-size: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .morebtn {
+        display: flex;
+        padding-bottom: 40px;
+    }
+    .morebtn button {
+        margin-right: 14px;
+    }
+    .about {
+        width: 80%;
+        margin: 100px 5% 100px 5%;
+        font-size: 25px;
+        font-family: 'Padauk', sans-serif;
+        font-weight: 560;
+        letter-spacing: 2px;
+    }
+    .question {
+        width: 80%;
+        margin: 100px 5% 100px 5%;
+        font-size: 25px;
+        font-family: 'Padauk', sans-serif;
+        font-weight: 500;
+        letter-spacing: 1px;
+    }
+}
+
+@media only screen and (max-width: 700px) {}
