@@ -1,0 +1,73 @@
+$('.tabs').on("click", (e) => {
+    let clickednav = e.target.name
+    $(".recentheading")[0].innerHTML = "<h4>OUR RECENT " + clickednav.toUpperCase() + "S" + "</h4>";
+    $.ajax({
+        url: "",
+        method: "GET",
+        data: { "nav": clickednav },
+        success: function(response) {
+            if (response.result.length != 0) {
+                $('.recentarticles')[0].style.display = "";
+                let result = response.result
+                $('.recentcontent')[0].innerHTML = ""
+                for (i = 0; i < result.length; i++) {
+                    if (i == 0) {
+                        if (clickednav != "idea") {
+                            var profile = result[0].fields.profile
+                            var title = result[0].fields.title
+                            var id = result[i].pk
+                        } else {
+                            var profile = "profile/female_avatar.png"
+                            var title = result[0].fields.author
+                            var id = result[0].fields.pk
+                        }
+                        $('.toparticle')[0].innerHTML =
+                            `
+                        <img src=" media/` + profile + `" alt="">
+                        <h2> <a href="article/` + id + `">` + title + ` </a> </h2>
+                        `
+                    } else {
+                        if (clickednav != "idea") {
+                            var profile = result[i].fields.profile
+                            var title = result[i].fields.title
+                        } else {
+                            var profile = "profile/female_avatar.png"
+                            var title = result[i].fields.author
+                        }
+
+                        var id = result[i].pk
+                        $('.recentcontent')[0].innerHTML +=
+                            `
+                        <div class="eachrecentart">
+                            <div class="eachartinfo">
+                                <div class="im">
+                                    <img src="media/` + profile + `" alt="">
+                                </div>
+                                <div class="ia">
+                                    <div class="profile">
+                                       <a href="article/` + id + `"><button class="articlesocial"> <span>PROFILE</span> </button> </a>
+                                    </div>
+                                    <div class="preinfo">
+                                        <a class="nav-item nav-link" href="#"><i class="fab fa-facebook-square"></i></a>
+                                        <a class="nav-item nav-link" href="#"> <i class="fab fa-instagram"></i> </a>
+                                        <a class="nav-item nav-link" href="#"> <i class="fab fa-twitter-square"></i></a>
+                                        <a class="nav-item nav-link" href="#"> <i class="fab fa-linkedin"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        <h2> <a href="article/` + id + `">` + title + ` </a> </h2>
+                        </div>
+                        <hr>
+                    `
+                    }
+                }
+            } else {
+                $('.toparticle')[0].innerHTML =
+                    `
+                <h2> Empty</h2> <img src="/static/svg/empty-animate.svg" alt="" width="80%" height="80%">
+                `
+                $('.recentarticles')[0].style.display = "none";
+            }
+        }
+    })
+})

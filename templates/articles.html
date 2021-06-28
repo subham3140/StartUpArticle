@@ -1,14 +1,19 @@
-{% extends 'base.html' %} {% block body %}
+{% extends 'base.html' %} {% block body %} {% load static %}
 <div class="container">
     <div class="articles">
         <div class="toparticle">
+            {% if toparticle != "empty" %}
             <img src="{{ toparticle.profile.url }}" alt="">
-            <h2> <a href="">{{ toparticle.title }} </a> </h2>
+            <h2> <a href="{% url 'article' pk=toparticle.id %}">{{ toparticle.title }} </a> </h2>
+            {% else %}
+            <h2> Empty</h2>
+            <img src="/static/svg/empty-animate.svg" alt="" width="80%" height="80%" style="object-fit: cover;"> {% endif %}
         </div>
         <div class="recentarticles">
             <div class="recentheading">
                 <h4>OUR RECENT ARTICLES</h4>
             </div>
+            <hr>
             <div class="recentcontent">
                 {% for article in allarticles %} {% if forloop.counter != 1 %}
                 <div class="eachrecentart">
@@ -18,7 +23,7 @@
                         </div>
                         <div class="ia">
                             <div class="profile">
-                                <a href=""><button class="articlesocial"> <span>PROFILE</span> </button> </a>
+                                <a href="{% url 'article' pk=article.id %}" name="{{ article.id }}"><button class="articlesocial"> <span>INTERVIEW</span> </button> </a>
                             </div>
                             <div class="preinfo">
                                 <a class="nav-item nav-link" href="#"><i class="fab fa-facebook-square"></i></a>
@@ -28,7 +33,7 @@
                             </div>
                         </div>
                     </div>
-                    <h2> <a href="">{{ article.title }}</a> </h2>
+                    <h2> <a href="{% url 'article' pk=article.id %}">{{ article.title }}</a> </h2>
                 </div>
                 <hr> {% endif %} {% endfor %}
             </div>

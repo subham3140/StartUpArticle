@@ -6,7 +6,7 @@ var default_pos = tabs.find('.default_pos')
 
 function adjustNav() {
     $(".selector").css({
-        "left": $(default_pos).position().left - 6 + "px",
+        "left": $(default_pos).position().left - 1 + "px",
         "width": default_pos.innerWidth() + "px"
     });
 }
@@ -21,7 +21,6 @@ $(".tabs").on("click", "a", function(e) {
         "width": activeWidth + "px"
     });
 });
-
 
 $('.search_btn').on("click", () => {
     let tabs = $('.tabs')

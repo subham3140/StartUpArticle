@@ -23,7 +23,8 @@
         width: 100%;
         font-size: 30px;
     }
-    .nav2 .tabs {
+    .nav2 .tabs,
+    .nav2 .tabs-interview {
         margin-top: 0px;
         font-size: 15px;
         padding: 0px;
@@ -48,7 +49,8 @@
         font-weight: 500;
         color: #05abe0;
     }
-    .nav2 .tabs a {
+    .nav2 .tabs a,
+    .nav2 .tabs-interview a {
         text-decoration: none;
         color: black;
         text-transform: uppercase;
@@ -59,13 +61,16 @@
         transition-duration: 0.6s;
         font-weight: 500;
     }
-    .nav2 .tabs a.active {
+    .nav2 .tabs a.active,
+    .nav2 .tabs-interview a.active {
         color: #fff;
     }
-    .nav2 .tabs a i {
+    .nav2 .tabs a i,
+    .nav2 .tabs-interview a i {
         margin-right: 1px;
     }
-    .nav2 .tabs .selector {
+    .nav2 .tabs .selector,
+    .nav2 .tabs-interview .selector {
         height: 100%;
         display: flex;
         position: absolute;
@@ -128,7 +133,8 @@
         display: flex;
         justify-content: flex-end;
     }
-    .nav2 .tabs {
+    .nav2 .tabs,
+    .nav2 .tabs-interview {
         display: none;
         width: 0%;
     }
@@ -173,7 +179,8 @@
     font-size: 25px;
 }
 
-.search_btn {
+.search_btn,
+.search_btn_app {
     display: flex;
     text-decoration: none;
     align-items: center;
@@ -190,7 +197,9 @@
 }
 
 .search_btn:before,
-.search_btn:after {
+.search_btn:after,
+.search_btn_app:before,
+.search_btn_app:after {
     position: absolute;
     content: "";
     width: 100%;
@@ -202,24 +211,34 @@
     transition: all .35s;
 }
 
-.search_btn:before {
+.search_btn:before,
+.search_btn_app::before {
     opacity: .5;
 }
 
-.search_btn:after {
+.search_btn:after,
+.search_btn_app::after {
     transition-delay: .2s;
 }
 
-.search_btn:hover {
+.search_btn:hover,
+.search_btn_app:hover {
     color: #fff;
 }
 
 .search_btn:hover::before,
-.search_btn:hover::after {
+.search_btn:hover::after,
+.search_btn_app:hover::before,
+.search_btn_app:hover::after {
     top: 0;
 }
 
 #navbarNavAltMarkup .fab {
     font-size: 20px;
     color: white;
+}
+
+.nav2 .tabs:hover,
+.nav2 .tabs-interview:hover {
+    cursor: pointer;
 }
