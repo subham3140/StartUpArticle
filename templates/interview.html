@@ -1,5 +1,4 @@
-{% include 'base.html' %} {% block interview %}
-
+{% include 'index.html' %} {% block interview %}{% load index %}
 <div class="heading">
     <div class="image">
         <img src="{{ article.profile.url }}" alt="">
@@ -20,9 +19,15 @@
     {% for item in about %} {{ item|linebreaks }} {% endfor %}
 </div>
 <div class="question">
-    {% for key,value in questions.items %}
-    <h2 style="font-weight: 600;">{{ key|linebreaks }}</h2>
-    <h3>{{ value|linebreaks }}</h3> <br> {% endfor %}
+    {% for question,answer in normalQformat.items %}
+    <h2 style="font-weight: 600;">{{ question|linebreaks }}</h2>
+    <h3>{{ answer|linebreaks }}</h3><br> {% endfor %} {% for question,answer in listQformat.items %}
+    <h2 style="font-weight: 600;">{{ question|linebreaks }}</h2> <br>
+    <div id="point_list">
+        {{ answer|index }}
+    </div> <br> {% endfor %}
+</div>
+<div class="content-saperator">
 </div>
 
 

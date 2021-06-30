@@ -21,13 +21,13 @@
     <div class="navbar nav2">
         <nav class="tabs-interview">
             <div class="selector"></div>
-            <a name="inspiration" class="search_bt">INSPIRATIONS</a>
-            <a name="idea" class="search_bt">STARTUP-IDEAS</a>
-            <a name="interview" class="search_bt">INTERVIEWS</a>
-            <a name="article" class="search_bt default_pos">ARTICLES</a>
-            <a name="story" class="search_bt">STORIES</a>
-            <a name="success_key" class="search_bt">SUCCESS KEYS</a>
-            <a name="influencer" class="search_bt">INFLUENCERS</a>
+            <a name="inspiration" class="search_bt" href="{% url 'allarticles' %}">INSPIRATIONS</a>
+            <a name="idea" class="search_bt" href="{% url 'allarticles' %}">STARTUP-IDEAS</a>
+            <a name="interview" class="search_bt" href="{% url 'allarticles' %}">INTERVIEWS</a>
+            <a name="article" class="search_bt default_pos" href="{% url 'allarticles' %}">ARTICLES</a>
+            <a name="story" class="search_bt" href="{% url 'allarticles' %}">STORIES</a>
+            <a name="success_key" class="search_bt" href="{% url 'allarticles' %}">SUCCESS KEYS</a>
+            <a name="influencer" class="search_bt" href="{% url 'allarticles' %}">INFLUENCERS</a>
         </nav>
         <div class="search_bar" hidden>
             <input type="search" name="search" id="">

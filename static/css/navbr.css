@@ -1,3 +1,18 @@
+.main-page-header {
+    position: relative;
+    height: 5%;
+}
+
+.interview-page-header {
+    position: relative;
+    height: 5%;
+}
+
+.main-content {
+    position: relative;
+    height: 90%;
+}
+
 @media only screen and (min-width: 600px) {
     .wrapper {
         text-align: center;
@@ -114,8 +129,8 @@
 
 @media only screen and (max-width: 700px) {
     .wrapper {
+        margin: auto;
         text-align: center;
-        margin: 10px auto;
         display: flex;
         justify-content: space-between;
         width: 100%;

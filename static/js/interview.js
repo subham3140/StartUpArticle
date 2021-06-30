@@ -1,7 +1,5 @@
 $('.tabs-interview').find("a[name=article]").removeClass("default_pos")
 $('.tabs-interview').find("a[name=interview]").addClass("default_pos")
-$('.main-page-header')[0].style.display = "none";
-$('.interview-page-header')[0].style.display = "";
 $('.content-saperator')[0].style.display = "none";
 var tabs = $('.tabs-interview');
 var selector = $('.tabs-interview').find('a').length;
@@ -16,7 +14,6 @@ function adjustNav() {
     });
 }
 $(".tabs-interview").on("click", "a", function(e) {
-    e.preventDefault();
     $('.tabs-interview a').removeClass("active");
     $(this).addClass('active');
     var activeWidth = $(this).innerWidth();
