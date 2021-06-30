@@ -22,30 +22,6 @@ $(".tabs").on("click", "a", function(e) {
     });
 });
 
-$('.search_btn').on("click", () => {
-    let tabs = $('.tabs')
-    let search_bar = $('.search_bar')
-    let search_btn = $('.search_btn')[0]
-    if (tabs[0].hidden == true) {
-        tabs[0].hidden = false
-        search_bar[0].hidden = true
-        search_btn.innerHTML =
-            `
-        <span class="material-icons">
-            zoom_in
-        </span>
-        `
-    } else {
-        tabs[0].hidden = true
-        search_bar[0].hidden = false
-        search_btn.innerHTML =
-            `
-        <span class="material-icons">
-            highlight_off
-        </span>
-        `
-    }
-})
 
 $(window).resize(function() {
     adjustNav()

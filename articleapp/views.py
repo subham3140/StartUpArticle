@@ -1,8 +1,9 @@
 from articleapp.models import Article
 from django.http.response import HttpResponse, JsonResponse
 from django.shortcuts import render
-from .models import Article, InterViewContent, Interview, MediaArticle
+from .models import Article, InterViewContent, Interview
 from django.core.serializers import serialize
+from django.db.models import Q
 import json
 
 # Create your views here.
@@ -41,21 +42,42 @@ def allArticles(request):
 def article(request, pk):
     article = Article.objects.get(id=pk) 
     interview = Interview.objects.get(author=article.author)
-    about = [item for item in interview.about.split("@changepg")]
+    about = [item for item in interview.about.split("@nextpg")]
+    questions = []
+    answers = []
+    listquestions = []
+    listanswers = []
     for i in interview.contents.all():
-      if i.content_type == "question":
-        questions = i.content.split("@qend")
+      if i.content_type == "list question answer":
+        split_qstn_ans = i.content.split("@nextq")
+        listquestions.append(split_qstn_ans[0])
+        listanswers.append(split_qstn_ans[1].split("@nextl"))
       else:
-        answers = i.content.split("@ansend")
-    result = {}   
+        split_qstn_ans = i.content.split("@nextq")
+        questions +=split_qstn_ans[:-1]
+        answers +=split_qstn_ans[-1].split("@nextan")
+      
+    normalQformat = {}   
+    listQformat = {}
     for i in range(0, len(questions)):
-          result[questions[i]] = answers[i] 
+      normalQformat[questions[i]] = answers[i] 
+    for i in range(0, len(listquestions)):
+          listQformat[listquestions[i]] = listanswers[i] 
     context = {
       "pk": pk,
       "interview": interview,
       "article": article,  
       "about": about,
-      "questions": result
+      "normalQformat": normalQformat,
+      "listQformat": listQformat
     }
-
     return render(request, "interview.html", context) 
+
+
+def searched_articles(request):
+  if request.is_ajax():  
+      searched_text = request.GET.get("searched")
+      allarticles = Article.objects.filter(Q(title__icontains=searched_text)|Q(author__icontains=searched_text))
+      data = serialize("json", allarticles) 
+      data = json.loads(data)
+  return JsonResponse({"result": data})

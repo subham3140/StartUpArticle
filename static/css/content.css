@@ -1,28 +1,32 @@
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 800px) {
     .main-content {
         position: relative;
+        height: 90%;
     }
     .articles {
-        width: 100%;
+        width: 75%;
+        margin-left: 10%;
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
     }
     .toparticle {
-        width: 65%;
+        padding-top: 20px;
+        margin-left: 20px;
+        width: 500px;
         font-family: 'Pacifico', cursive;
         letter-spacing: 3px;
+        margin-right: 20px;
     }
     .toparticle img {
         border: 1px solid black;
         border-radius: 50%;
-        width: 500px;
-        height: 500px;
+        width: 480px;
+        height: 480px;
         object-fit: cover;
     }
     .toparticle h2 {
         padding-top: 25px;
-        width: 90%;
+        width: 500px;
     }
     .toparticle h2 a {
         color: black;
@@ -32,14 +36,16 @@
     }
     .recentarticles {
         padding-top: 10px;
-        width: 35%;
+        width: auto;
     }
     .recentheading {
         text-align: center;
         height: 5%;
     }
     .recentheading h4 {
+        font-size: 25px;
         padding-top: 15px;
+        font-weight: 600;
     }
     .recentcontent {
         height: 90%;
@@ -50,12 +56,12 @@
     .eachrecentart img {
         border: 1px solid black;
         border-radius: 50%;
-        height: 180px;
-        width: 180px;
+        height: 200px;
+        width: 200px;
         object-fit: cover;
     }
     .eachrecentart h2 {
-        font-size: 20px;
+        font-size: 25px;
         font-family: 'Akaya Kanadaka', cursive;
         padding-top: 10px;
     }
@@ -72,16 +78,23 @@
         flex-direction: row;
         align-items: center;
     }
-    .eachartinfo .im,
-    .eachartinfo .ia {
-        width: 50%;
+    .eachartinfo .im {
+        width: 200px;
         height: 100%;
+        display: flex;
+        justify-items: flex-start;
+    }
+    .eachartinfo .ia {
+        width: auto;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-items: flex-start;
     }
     .eachartinfo .ia .profile {
         width: 100%;
         height: 50%;
-        display: flex;
-        justify-content: center;
+        padding-left: 20px;
     }
     .eachartinfo .preinfo {
         padding-top: 10px;
@@ -89,54 +102,72 @@
         height: 50%;
         display: flex;
         flex-direction: row;
-        justify-content: center;
+        justify-content: flex-start;
     }
     .eachartinfo .preinfo a {
-        width: 15%;
+        width: 30px;
         height: 100%;
+        margin-right: 20px;
+        color: #0490bd;
     }
     .eachartinfo .preinfo a i {
-        font-size: 20px;
+        font-size: 30px;
+        padding-left: 10px;
     }
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 800px) {
     .main-content {
         position: relative;
+        height: 90%;
+        width: 100%;
+    }
+    .articles {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
     }
     .toparticle {
-        text-align: center;
+        padding-top: 20px;
+        padding-left: 20px;
+        width: auto;
         font-family: 'Pacifico', cursive;
         letter-spacing: 3px;
+        text-align: center;
     }
     .toparticle img {
-        height: 300px;
-        width: 300px;
         border: 1px solid black;
         border-radius: 50%;
+        width: 300px;
+        height: 300px;
         object-fit: cover;
     }
     .toparticle h2 {
-        padding-top: 20px;
+        padding-top: 25px;
+        width: 400px;
     }
     .toparticle h2 a {
-        color: black;
+        color: #05abe0;
+        font-weight: 400;
     }
     .toparticle h2:hover a {
         color: #05abe0;
     }
     .recentarticles {
-        padding-top: 10px
+        padding-top: 10px;
+        width: auto;
     }
     .recentheading {
         text-align: center;
         height: 5%;
     }
+    .recentheading h4 {
+        font-size: 25px;
+        padding-top: 15px;
+        font-weight: 600;
+    }
     .recentcontent {
         height: 90%;
-    }
-    .recentheading h4 {
-        padding-top: 15px;
     }
     .eachrecentart {
         text-align: center;
@@ -144,8 +175,8 @@
     .eachrecentart img {
         border: 1px solid black;
         border-radius: 50%;
-        height: 180px;
-        width: 180px;
+        height: 200px;
+        width: 200px;
         object-fit: cover;
     }
     .eachrecentart h2 {
@@ -163,15 +194,23 @@
     .eachartinfo {
         width: 100%;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         align-items: center;
     }
-    .eachartinfo .im,
-    .eachartinfo .ia {
-        width: 50%;
+    .eachartinfo .im {
+        width: 200px;
         height: 100%;
+        display: flex;
+        justify-items: flex-start;
+    }
+    .eachartinfo .ia {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
     }
     .eachartinfo .ia .profile {
+        padding-top: 10px;
         width: 100%;
         height: 50%;
         display: flex;
@@ -186,11 +225,14 @@
         justify-content: center;
     }
     .eachartinfo .preinfo a {
-        width: 15%;
+        width: 30px;
         height: 100%;
+        margin-right: 20px;
+        color: #0490bd;
     }
     .eachartinfo .preinfo a i {
-        font-size: 20px;
+        font-size: 25px;
+        padding-left: 10px;
     }
 }
 

@@ -4,8 +4,8 @@ from django.utils import tree
 # Create your models here.
 
 CONTENT_TYPE = (
-    ("question", "Question"),
-    ("answers", "Answers"),
+    ("question answer", "Question Answer"),
+    ("list question answer", "List Question Answer"),
     ("inspiration", "Inspiration"),
     ("success_key", "Success Key"),
     ("story", "story"),
@@ -20,20 +20,13 @@ GENDER = (
     ("male", "Male Avatar"),
     ("female", "Female Avatar")
 )
-
-class MediaArticle(models.Model):
-    image = models.ImageField(upload_to="interview_image")
-    video = models.FileField(upload_to="video/%y", null=True, blank=True)
-    author =  models.CharField(max_length=500, null=True, blank=True)
-
-    def __str__(self):
-        return "media field of {}".format(self.author)   
         
 class InterViewContent(models.Model):
     author =  models.CharField(max_length=500, null=True, blank=True)
     content = models.TextField(null=True)
     content_type = models.CharField(choices=CONTENT_TYPE, max_length=200, default= "question")
-    media = models.ManyToManyField(to=MediaArticle)
+    image = models.ImageField(upload_to="interview_image",null=True, blank=True)
+    video = models.FileField(upload_to="video/%y", null=True, blank=True)    
     gender = models.CharField(choices=GENDER, max_length=400, default="male")
 
     def __str__(self):
@@ -54,13 +47,17 @@ class Article(models.Model):
     profile = models.ImageField(upload_to="profile", null=True, blank=True)
     interview = models.ForeignKey(to=Interview, on_delete=models.CASCADE, null=True)
     author =  models.CharField(max_length=500, null=True, blank=True)
+    fb = models.CharField(null=True, max_length=1000)
+    inst = models.CharField(null=True, max_length=1000)
+    twt = models.CharField(null=True, max_length=1000)
+    ld = models.CharField(null=True, max_length=1000)
 
     def __str__(self):
         return f'article of {self.author}'
 
 
 
-# for each paragraph - @changepg
-# for each ending question - @qend
-# for each ending answer - @ansend
-# for list items - @changel
+# for each paragraph - @nextpg
+# for each ending question(except last) - @nextq
+# for each ending answer(except last) - @nextan
+# for list items and title paragraph of list answer (except last)- @nextl

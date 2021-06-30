@@ -53,12 +53,103 @@
     }
     .question {
         width: 80%;
-        margin: 100px 5% 100px 5%;
+        margin: 100px 5% 10% 5%;
         font-size: 25px;
         font-family: 'Padauk', sans-serif;
         font-weight: 500;
         letter-spacing: 1px;
     }
+    #point_list i {
+        font-size: 30px;
+        color: #05abe0;
+    }
+    #point_list {
+        display: flex;
+        font-size: 20px;
+        flex-direction: column;
+    }
+    #point_list #innerlist {
+        display: flex;
+    }
+    #point_list #innerlist h3 {
+        margin-left: 20px;
+    }
 }
 
-@media only screen and (max-width: 700px) {}
+@media only screen and (max-width: 700px) {
+    .heading {
+        top: 0;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: auto;
+        width: 100%;
+        position: relative;
+        background-color: #e4e9eb;
+        border-radius: 15px;
+    }
+    .heading .image {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .heading .image img {
+        width: 270px;
+        height: 270px;
+        border-radius: 50%;
+        border: 1px solid black;
+        object-fit: cover;
+    }
+    .heading .title {
+        position: relative;
+        padding: 0px 20px 0px 10px;
+        width: 100%;
+        padding-top: 20px;
+        font-family: 'Pacifico', cursive;
+        letter-spacing: 3px;
+        font-size: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .morebtn {
+        display: flex;
+        padding-bottom: 40px;
+    }
+    .morebtn button {
+        margin-right: 14px;
+    }
+    .about {
+        width: 80%;
+        margin: 100px 5% 100px 5%;
+        font-size: 20px;
+        font-family: 'Padauk', sans-serif;
+        font-weight: 560;
+        letter-spacing: 2px;
+    }
+    .question {
+        width: 80%;
+        margin: 100px 5% 10% 5%;
+        font-size: 20px;
+        font-family: 'Padauk', sans-serif;
+        font-weight: 500;
+        letter-spacing: 1px;
+    }
+    #point_list i {
+        font-size: 25px;
+        color: #05abe0;
+    }
+    #point_list {
+        display: flex;
+        font-size: 15px;
+        flex-direction: column;
+    }
+    #point_list #innerlist {
+        display: flex;
+    }
+    #point_list #innerlist h3 {
+        margin-left: 20px;
+        font-size: 20px;
+    }
+}
